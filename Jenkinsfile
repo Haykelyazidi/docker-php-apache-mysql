@@ -10,7 +10,7 @@ pipeline {
         stage("Clone code from VCS") {
             steps {
                 script {
-                    git 'https://github.com/ranjit4github/docker-php-apache-mysql.git';
+                    git 'https://github.com/Haykelyazidi/docker-php-apache-mysql.git';
                 }
             }
         }
