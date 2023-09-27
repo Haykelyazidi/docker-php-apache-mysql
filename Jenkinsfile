@@ -17,7 +17,7 @@ pipeline {
         
     stage('Update docker compose File') {
         environment {
-            GIT_REPO_NAME = "phpcompose"
+            GIT_REPO_NAME = "docker-php-apache-mysql"
             GIT_USER_NAME = "Haykelyazidi"
         }
         steps {
