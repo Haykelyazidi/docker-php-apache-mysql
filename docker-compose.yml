@@ -3,6 +3,8 @@ version: "2"
 services:
     www:
         build: .
+        tags:
+            - haydevops/hayphp
         ports:
             - "80:80"
         volumes:
@@ -13,6 +15,8 @@ services:
             - default
     db:
         image: mysql:5.7.28
+        tags:
+            - haydevops/mysql
         ports:
             - "3306:3306"
         environment:
@@ -27,6 +31,8 @@ services:
             - default
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
+        tags:
+            - haydevops/hayphpadmin
         links:
             - db:db
         ports:
