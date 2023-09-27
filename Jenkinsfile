@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
             
-            sh "docker-compose up"
+            sh "docker-compose up -d"
                 
             
                 }
@@ -35,7 +35,7 @@ pipeline {
                 script {
                     withCredentials([string(credentialsId: 'docker_hub', variable: 'DOCKER_CREDENTIALS')]) {
                      sh "echo $DOCKER_CREDENTIALS | docker login -u haydevops --password-stdin"
-                     sh "docker push haydevops/hayphp"
+                     sh "docker-compose push"
         }
           
       
