@@ -26,7 +26,7 @@ pipeline {
             def customTag = "haydevops/php-sql-dockercompose:${BUILD_NUMBER}"
             docker-compose(
                 buildArguments: "-t ${customTag}",
-                dockerComposeFile: 'dockercompose.yml'
+                dockerComposeFile: 'docker-compose.yml'
             )
                 }
           }
