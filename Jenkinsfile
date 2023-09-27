@@ -17,7 +17,7 @@ pipeline {
         
     stage('Update docker compose File') {
         environment {
-            GIT_REPO_NAME = "Gestion"
+            GIT_REPO_NAME = "phpcompose"
             GIT_USER_NAME = "Haykelyazidi"
         }
         steps {
