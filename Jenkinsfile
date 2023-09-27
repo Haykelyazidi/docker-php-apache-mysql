@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
             
-            docker-compose up
+            sh "docker-compose up"
                 
             
                 }
