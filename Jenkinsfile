@@ -23,10 +23,9 @@ pipeline {
         stage("Build Docker Image"){
             steps {
                 script {
-            def customTag = "haydevops/php-sql-dockercompose:${BUILD_NUMBER}"
-            docker-compose(
-                buildArguments: "-t ${customTag}",
-                dockerComposeFile: 'docker-compose.yml'
+            
+            docker-compose up
+                
             )
                 }
           }
@@ -36,7 +35,7 @@ pipeline {
                 script {
                     withCredentials([string(credentialsId: 'docker_hub', variable: 'DOCKER_CREDENTIALS')]) {
                      sh "echo $DOCKER_CREDENTIALS | docker login -u haydevops --password-stdin"
-                     sh "docker push ${customTag}"
+                     sh "docker push haydevops/hayphp"
         }
           
       
