@@ -26,8 +26,8 @@ pipeline {
                     git config --global user.email "haykel.yazidi@gmail.com"
                     git config --global user.name "Haykelyazidi"
                    
-                    sed -i "s/phpcompose:.*/phpcompose:\${BUILD_NUMBER}/" /docker-compose.yml
-                    git add /docker-compose.yml
+                    sed -i "s/phpcompose:.*/phpcompose:\${BUILD_NUMBER}/" docker-compose.yml
+                    git add docker-compose.yml
                     git commit -m "Update docker compose image to version ${imageTag}"
                     '''
                     withCredentials([string(credentialsId: 'github_credentials', variable: 'token_hub')]) {                                   
