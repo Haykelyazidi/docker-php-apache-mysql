@@ -26,7 +26,7 @@ pipeline {
                     git config --global user.email "haykel.yazidi@gmail.com"
                     git config --global user.name "Haykelyazidi"
                    
-                    sed -i "s/haydevops/phpcompose:.*/haydevops/phpcompose:\${BUILD_NUMBER}/" docker-compose.yml
+                    sed -i "s#haydevops/phpcompose:.*#haydevops/phpcompose:\${BUILD_NUMBER}#" docker-compose.yml
                     git add deployment.yml
                     git commit -m "Update docker compose image to version ${imageTag}"
                     '''
