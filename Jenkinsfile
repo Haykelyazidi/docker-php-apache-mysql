@@ -15,7 +15,29 @@ pipeline {
             }
         }
         
+    stage('Update docker compose File') {
+        environment {
+            GIT_REPO_NAME = "Gestion"
+            GIT_USER_NAME = "Haykelyazidi"
+        }
+        steps {
+           
+                sh '''            
+                    git config --global user.email "haykel.yazidi@gmail.com"
+                    git config --global user.name "Haykelyazidi"
+                   
+                    sed -i "s/gestion:v.*/gestion:v\${BUILD_NUMBER}/" dev/deployment.yaml
+                    git add dev/deployment.yaml
+                    git commit -m "Update deployment image to version ${imageTag}"
+                    '''
+                    withCredentials([string(credentialsId: 'github_credentials', variable: 'token_hub')]) {                                   
+                     sh 'git push https://${token_hub}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:master'                   
+                   
+                   }
 
+          
+        }
+    }
         
         
         
