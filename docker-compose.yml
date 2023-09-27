@@ -3,8 +3,7 @@ version: "2"
 services:
     www:
         build: .
-        tags:
-            - haydevops/hayphp
+        
         ports:
             - "80:80"
         volumes:
