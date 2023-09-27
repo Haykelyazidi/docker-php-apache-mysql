@@ -26,7 +26,7 @@ pipeline {
             
             docker-compose up
                 
-            )
+            
                 }
           }
         }
