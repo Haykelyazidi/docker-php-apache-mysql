@@ -30,8 +30,7 @@ services:
             - default
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
-        tags:
-            - haydevops/hayphpadmin
+        
         links:
             - db:db
         ports:
