@@ -5,10 +5,7 @@ pipeline {
     agent any
    
     
-    environment {
-        
-       
-    }
+    
     stages {
         stage("Clone code from VCS") {
             steps {
