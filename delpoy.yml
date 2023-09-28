@@ -9,16 +9,16 @@ kind: Service
 metadata:
   annotations:
     generated.by: 8gwifi.org
-  name: service.name.7
+  name: service.name.1
   namespace: default
 spec:
   ports:
-  - name: http
-    port: 80
+  - name: nameme_01
+    port: 8087
     protocol: tcp
-    targetPort: 80
+    targetPort: 8087
   selector:
-    app: demo.49
+    app: demo.40
   type: NodePort
 
 
@@ -28,23 +28,23 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   labels:
-    app: demo.49
-  name: deployment.name.50
+    app: demo.40
+  name: deployment.name.52
   namespace: default
 spec:
   replicas: 1
   revisionHistoryLimit: 1
   selector:
     matchLabels:
-      app: demo.49
+      app: demo.40
   template:
     metadata:
       labels:
-        app: demo.49
+        app: demo.40
       namespace: default
     spec:
       containers:
-      - image: haydevops/phpcompose:24
+      - image: haydevops/phpcompose:26
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
@@ -105,7 +105,7 @@ kind: Service
 metadata:
   annotations:
     generated.by: 8gwifi.org
-  name: service.name.7
+  name: service.name.6
   namespace: default
 spec:
   ports:
@@ -114,7 +114,7 @@ spec:
     protocol: tcp
     targetPort: 3306
   selector:
-    app: demo.44
+    app: demo.35
   type: NodePort
 
 
@@ -124,19 +124,19 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   labels:
-    app: demo.44
-  name: deployment.name.14
+    app: demo.35
+  name: deployment.name.24
   namespace: default
 spec:
   replicas: 1
   revisionHistoryLimit: 1
   selector:
     matchLabels:
-      app: demo.44
+      app: demo.35
   template:
     metadata:
       labels:
-        app: demo.44
+        app: demo.35
       namespace: default
     spec:
       containers:
@@ -253,16 +253,16 @@ kind: Service
 metadata:
   annotations:
     generated.by: 8gwifi.org
-  name: service.name.5
+  name: service.name.7
   namespace: default
 spec:
   ports:
   - name: nameme_01
-    port: 82
+    port: 8088
     protocol: tcp
-    targetPort: 82
+    targetPort: 8088
   selector:
-    app: demo.61
+    app: demo.11
   type: NodePort
 
 
@@ -272,19 +272,19 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   labels:
-    app: demo.61
-  name: deployment.name.75
+    app: demo.11
+  name: deployment.name.17
   namespace: default
 spec:
   replicas: 1
   revisionHistoryLimit: 1
   selector:
     matchLabels:
-      app: demo.61
+      app: demo.11
   template:
     metadata:
       labels:
-        app: demo.61
+        app: demo.11
       namespace: default
     spec:
       containers:
