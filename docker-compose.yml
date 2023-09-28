@@ -5,7 +5,7 @@ services:
         build: .
         image: haydevops/phpcompose:27
         ports:
-            - "8087:80"
+            - "8087:8087"
         volumes:
             - ./www:/var/www/html/
         links:
@@ -33,7 +33,7 @@ services:
         links:
             - db:db
         ports:
-            - 8088:81
+            - 8088:8088
         environment:
             MYSQL_USER: ranjit
             MYSQL_PASSWORD: ranjit
