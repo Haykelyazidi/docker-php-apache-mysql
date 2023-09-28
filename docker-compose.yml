@@ -33,7 +33,7 @@ services:
         links:
             - db:db
         ports:
-            - 8088:80
+            - 8088:81
         environment:
             MYSQL_USER: ranjit
             MYSQL_PASSWORD: ranjit
