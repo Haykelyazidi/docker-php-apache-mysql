@@ -1,0 +1,304 @@
+ #Generated using the tool https://8gwifi.org/kube1.jsp
+#Total Number of Services Found 3
+
+#Generating kubernetes YAML file for the Service www.yml
+#This is Service Configuration Kube definition
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    generated.by: 8gwifi.org
+  name: service.name.7
+  namespace: default
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: tcp
+    targetPort: 80
+  selector:
+    app: demo.49
+  type: NodePort
+
+
+#This is Deployment Configuration Kube definition
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: demo.49
+  name: deployment.name.50
+  namespace: default
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: demo.49
+  template:
+    metadata:
+      labels:
+        app: demo.49
+      namespace: default
+    spec:
+      containers:
+      - image: haydevops/phpcompose:24
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+          name: portname.0
+          protocol: tcp
+        volumeMounts:
+        - mountPath: /var/www/html/
+          name: pvo.0
+      terminationGracePeriodSeconds: 0
+      volumes:
+      - name: pvo.0
+        persistentVolumeClaim:
+          claimName: claimname.0
+
+#This is PersistentVolume Kube Object with Name
+#pvo.0.yml
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    generated.by: 8gwifi.org
+  name: pvo.0
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  hostPath:
+    path: ./www
+    type: Directory
+  persistentVolumeReclaimPolicy: Retain
+
+#This is PersistentVolumeClaim Kube Object with Name
+#claimname.0.yml
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    generated.by: 8gwifi.org
+  name: claimname.0
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: pvo.0
+
+#Generating kubernetes YAML file for the Service db.yml
+#This is Service Configuration Kube definition
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    generated.by: 8gwifi.org
+  name: service.name.7
+  namespace: default
+spec:
+  ports:
+  - name: nameme_01
+    port: 3306
+    protocol: tcp
+    targetPort: 3306
+  selector:
+    app: demo.44
+  type: NodePort
+
+
+#This is Deployment Configuration Kube definition
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: demo.44
+  name: deployment.name.14
+  namespace: default
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: demo.44
+  template:
+    metadata:
+      labels:
+        app: demo.44
+      namespace: default
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_DATABASE
+          value: myDb
+        - name: MYSQL_USER
+          value: ranjit
+        - name: MYSQL_PASSWORD
+          value: ranjit
+        - name: MYSQL_ROOT_PASSWORD
+          value: ranjit
+        image: mysql:5.7.28
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3306
+          name: portname.0
+          protocol: tcp
+        volumeMounts:
+        - mountPath: /docker-entrypoint-initdb.d
+          name: pvo.0
+        - mountPath: /var/lib/mysql
+          name: pvo.1
+      terminationGracePeriodSeconds: 0
+      volumes:
+      - name: pvo.0
+        persistentVolumeClaim:
+          claimName: claimname.0
+      - name: pvo.1
+        persistentVolumeClaim:
+          claimName: claimname.1
+
+#This is PersistentVolume Kube Object with Name
+#pvo.0.yml
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    generated.by: 8gwifi.org
+  name: pvo.0
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  hostPath:
+    path: ./dump
+    type: Directory
+  persistentVolumeReclaimPolicy: Retain
+
+#This is PersistentVolume Kube Object with Name
+#pvo.1.yml
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    generated.by: 8gwifi.org
+  name: pvo.1
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  hostPath:
+    path: persistent
+    type: Directory
+  persistentVolumeReclaimPolicy: Retain
+
+#This is PersistentVolumeClaim Kube Object with Name
+#claimname.0.yml
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    generated.by: 8gwifi.org
+  name: claimname.0
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: pvo.0
+
+#This is PersistentVolumeClaim Kube Object with Name
+#claimname.1.yml
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    generated.by: 8gwifi.org
+  name: claimname.1
+  namespace: default
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: pvo.1
+
+#Generating kubernetes YAML file for the Service phpmyadmin.yml
+#This is Service Configuration Kube definition
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    generated.by: 8gwifi.org
+  name: service.name.5
+  namespace: default
+spec:
+  ports:
+  - name: nameme_01
+    port: 82
+    protocol: tcp
+    targetPort: 82
+  selector:
+    app: demo.61
+  type: NodePort
+
+
+#This is Deployment Configuration Kube definition
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: demo.61
+  name: deployment.name.75
+  namespace: default
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: demo.61
+  template:
+    metadata:
+      labels:
+        app: demo.61
+      namespace: default
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_USER
+          value: ranjit
+        - name: MYSQL_PASSWORD
+          value: ranjit
+        - name: MYSQL_ROOT_PASSWORD
+          value: ranjit
+        image: phpmyadmin/phpmyadmin
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+          name: portname.0
+          protocol: tcp
+      terminationGracePeriodSeconds: 0
