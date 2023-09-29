@@ -28,6 +28,7 @@ pipeline {
                    
                     sed -i "s/phpcompose.*/phpcompose:\${BUILD_NUMBER}/" docker-compose.yml
                     git add docker-compose.yml
+                    kompose convert
                     git commit -m "Update docker compose image to version ${imageTag}"
                     '''
                     withCredentials([string(credentialsId: 'github_credentials', variable: 'token_hub')]) {                                   
