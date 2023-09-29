@@ -9,6 +9,7 @@ metadata:
     io.kompose.service: phpmyadmin
   name: phpmyadmin
 spec:
+  type: NodePort
   replicas: 1
   selector:
     matchLabels:
