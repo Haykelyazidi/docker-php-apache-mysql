@@ -13,6 +13,7 @@ spec:
     - name: "8088"
       port: 8088
       targetPort: 80
+      protocol: TCP
   selector:
     io.kompose.service: phpmyadmin
 status:
