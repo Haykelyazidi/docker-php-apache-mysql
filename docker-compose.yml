@@ -8,8 +8,8 @@ services:
             - 8087:80
         volumes:
             - ./www:/var/www/html
-        links:
-            - db:db
+        depends_on:
+            - db
         networks:
             - default
     db:
