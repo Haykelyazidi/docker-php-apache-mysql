@@ -6,8 +6,7 @@ services:
         image: haydevops/phpcompose:41
         ports:
             - 8087:80
-        volumes:
-            - ./www:/var/www/html
+       
         depends_on:
             - db
         networks:
