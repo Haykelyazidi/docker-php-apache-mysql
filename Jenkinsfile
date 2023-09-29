@@ -27,8 +27,9 @@ pipeline {
                     git config --global user.name "Haykelyazidi"
                    
                     sed -i "s/phpcompose.*/phpcompose:\${BUILD_NUMBER}/" docker-compose.yml
-                    
-                    kompose convert
+                    mkdir manifestes
+                    cd manifestes
+                    kompose convert ./docker-compose.yml
                     git add .
                     git commit -m "Update docker compose image to version ${imageTag}"
                     '''
