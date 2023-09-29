@@ -35,6 +35,8 @@ services:
             MYSQL_USER: ranjit
             MYSQL_PASSWORD: ranjit
             MYSQL_ROOT_PASSWORD: ranjit
+        networks:
+            - default
 volumes:
     persistent:
 
