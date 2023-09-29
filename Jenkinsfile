@@ -29,7 +29,7 @@ pipeline {
                     sed -i "s/phpcompose.*/phpcompose:\${BUILD_NUMBER}/" docker-compose.yml
                     mkdir manifestes
                     cd manifestes
-                    kompose convert ./docker-compose.yml
+                    kompose --file ../docker-compose.yml convert
                     git add .
                     git commit -m "Update docker compose image to version ${imageTag}"
                     '''
