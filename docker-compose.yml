@@ -21,9 +21,7 @@ services:
             MYSQL_USER: ranjit
             MYSQL_PASSWORD: ranjit
             MYSQL_ROOT_PASSWORD: ranjit
-        volumes:
-            - ./dump:/docker-entrypoint-initdb.d
-            - persistent:/var/lib/mysql
+       
         networks:
             - default
     phpmyadmin:
