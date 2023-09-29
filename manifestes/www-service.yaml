@@ -9,6 +9,7 @@ metadata:
     io.kompose.service: www
   name: www
 spec:
+  type: NodePort
   ports:
     - name: "45678"
       port: 45678
