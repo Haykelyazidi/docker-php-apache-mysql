@@ -3,7 +3,7 @@ version: "2"
 services:
     www:
         build: .
-        image: haydevops/phpcompose:41
+        image: haydevops/phpcompose:42
         ports:
             - 8087:80
        
