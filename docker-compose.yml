@@ -5,7 +5,7 @@ services:
         build: .
         image: haydevops/phpcompose:44
         ports:
-            - 8087:80
+            - 45678:80
        
         depends_on:
             - db
@@ -30,7 +30,7 @@ services:
         links:
             - db:db
         ports:
-            - 8088:80
+            - 45679:80
         environment:
             MYSQL_USER: ranjit
             MYSQL_PASSWORD: ranjit
